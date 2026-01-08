@@ -1,13 +1,12 @@
-function Header({ setPage }) {
+function Header() {
   return (
-    <header className="p-3 bg-light">
-      <nav>
-        <a href="#" onClick={(e) => { e.preventDefault(); setPage('home') }}>home</a> |
-        <a href="#" onClick={(e) => { e.preventDefault(); setPage('about') }}>about</a> |
-        <a href="#" onClick={(e) => { e.preventDefault(); setPage('contact') }}>contact</a>
-      </nav>
-      <h1>welcome to website</h1>
+    <header>
+      <h1>Welcome to website</h1>
+      <button style={{ backgroundColor: 'deepskyblue', color: 'white' }}>
+       Click Me
+      </button>
     </header>
   )
 }
-export default Header
+
+export default Header;
