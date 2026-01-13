@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Contact from './components/Contact';
 import About from './components/About';
+import TestCount from './components/TestCount';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               element={
                 <div className="container-fluid">
                   <Header />
+                  <TestCount />
                   <Orchids />
                 </div>
               } 
@@ -41,7 +43,6 @@ function App() {
             <Route path="/about" element={<About />} />
           </Routes>
         </main>
-
         {/* Chân trang cố định phía dưới */}
         <footer className="footer-fixed">
           <Footer />
