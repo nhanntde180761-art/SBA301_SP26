@@ -1,0 +1,52 @@
+/* Loại bỏ các thiết lập mặc định gây gò bó của React/Vite */
+body {
+  margin: 0;
+  padding: 0;
+  display: block; /* Thay vì flex để nội dung chảy tự nhiên từ trên xuống */
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden; /* Chống tràn ngang */
+}
+
+#root {
+  width: 100%;
+  max-width: 100% !important;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Cố định NavBar lên trên cùng */
+.header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050;
+  background-color: white; /* Đảm bảo không bị trong suốt */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Cố định Footer xuống dưới cùng */
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050;
+  background-color: white;
+}
+
+/* Phần nội dung ở giữa: Cần padding để không bị che bởi Header/Footer */
+.main-content {
+  padding-top: 80px;    /* Điều chỉnh theo chiều cao NavBar của bạn */
+  padding-bottom: 60px; /* Điều chỉnh theo chiều cao Footer của bạn */
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Đảm bảo ảnh hoặc các item bên trong cũng tràn rộng */
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
