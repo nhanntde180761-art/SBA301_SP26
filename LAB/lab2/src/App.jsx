@@ -1,46 +1,62 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import NavBar from './components/NavBar';
-import Orchids from './components/ListOfCorchid';
-import OrchidDetail from './components/OrchidDetail';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Contact from './components/Contact';
-import About from './components/About';
-import Login from './components/Login'; // 1. Phải import Login
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+
+import NavBar from "./components/NavBar";
+import Orchids from "./components/ListOfCorchid"; // Sửa lại tên file nếu cần
+import OrchidDetail from "./components/OrchidDetail";
+import Footer from "./components/Footer";
+import Login from "./components/Login";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import MainLayout from "./components/MainLayout"; // Import component vừa tách
 
 function App() {
+  const [filterCategory, setFilterCategory] = useState("");
+  const [sortOption, setSortOption] = useState("");
+  const [searchText, setSearchText] = useState("");
+
   return (
     <Router>
-      <div className="app-container">
-        <header className="header-fixed">
+      <div className="app-container d-flex flex-column min-vh-100">
+        <header className="header-fixed shadow-sm">
           <NavBar />
         </header>
 
-        <main className="main-content">
+        <main className="main-content flex-grow-1">
           <Routes>
-            {/* 2. Trang Login xuất hiện đầu tiên khi khởi chạy */}
+            {/* Trang Login không nằm trong MainLayout nên không có Banner/Search */}
             <Route path="/" element={<Login />} />
 
-            {/* 3. Trang danh sách hoa sau khi login thành công */}
-            <Route 
-              path="/orchids" 
+            {/* Sử dụng MainLayout cho nhóm trang nội bộ */}
+            <Route
               element={
-                <div className="container-fluid">
-                  <Header />
-                  <Orchids />
-                </div>
-              } 
-            />
-            
-            <Route path="/detail/:id" element={<OrchidDetail />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
+                <MainLayout
+                  setSearchText={setSearchText}
+                  setFilterCategory={setFilterCategory}
+                  setSortOption={setSortOption}
+                />
+              }
+            >
+              <Route
+                path="/orchids"
+                element={
+                  <Orchids
+                    searchText={searchText}
+                    filterCategory={filterCategory}
+                    sortOption={sortOption}
+                  />
+                }
+              />
+              <Route path="/detail/:id" element={<OrchidDetail />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+            </Route>
           </Routes>
         </main>
 
-        <footer className="footer-fixed">
+        <footer className="footer-fixed mt-auto">
           <Footer />
         </footer>
       </div>

@@ -50,3 +50,13 @@ body {
   padding-left: 0;
   padding-right: 0;
 }
+
+.orchid-card:hover .hover-zoom {
+  transform: scale(1.1);
+}
+.orchid-card {
+  transition: transform 0.2s ease;
+}
+.orchid-card:hover {
+  transform: translateY(-5px);
+}

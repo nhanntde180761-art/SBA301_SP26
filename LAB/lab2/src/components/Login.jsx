@@ -6,18 +6,19 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [validated, setValidated] = useState(false); 
   const navigate = useNavigate();
 
-  // Kiểm tra điều kiện ngay lúc nhập
-  const isPasswordShort = password.length > 0 && password.length < 6;
-  const isUsernameEmpty = username.trim() === '' && username.length > 0;
+  // Điều kiện kiểm tra
+  const isUsernameValid = username.trim() !== '';
+  const isPasswordValid = password.length >= 6;
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setValidated(true); // Bật trạng thái kiểm tra màu sắc
 
-    // Cảnh báo nếu password quá ngắn trước khi gửi
-    if (password.length < 6) {
-      setError('Mật khẩu phải có ít nhất 6 ký tự!');
+    if (!isUsernameValid || !isPasswordValid) {
+      setError('Vui lòng kiểm tra lại thông tin nhập liệu!');
       return;
     }
 
@@ -34,6 +35,7 @@ function Login() {
     setUsername('');
     setPassword('');
     setError('');
+    setValidated(false);
   };
 
   return (
@@ -42,10 +44,10 @@ function Login() {
         <Card.Body className="p-4">
           <h2 className="text-center mb-4 fw-bold text-primary">LOGIN</h2>
           
-          {/* Cảnh báo lỗi tổng quát */}
           {error && <Alert variant="danger" className="py-2 small">{error}</Alert>}
           
-          <Form onSubmit={handleLogin}>
+          <Form noValidate onSubmit={handleLogin}>
+            {/* USERNAME */}
             <Form.Group className="mb-3">
               <Form.Label className="fw-semibold">Username</Form.Label>
               <Form.Control 
@@ -53,14 +55,16 @@ function Login() {
                 placeholder="Nhập tài khoản..."
                 value={username} 
                 onChange={(e) => setUsername(e.target.value)} 
-                isInvalid={isUsernameEmpty} // Hiện viền đỏ nếu rỗng
+                // Hiện đỏ nếu bấm login mà trống, hiện xanh nếu đã nhập
+                isInvalid={validated && !isUsernameValid}
+                isValid={validated && isUsernameValid}
                 required 
               />
-              <Form.Control.Feedback type="invalid">
-                Vui lòng không để trống tài khoản.
-              </Form.Control.Feedback>
+              <Form.Control.Feedback type="valid">Tên Tài khoản hợp lệ!</Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">Vui lòng nhập tài khoản.</Form.Control.Feedback>
             </Form.Group>
 
+            {/* PASSWORD */}
             <Form.Group className="mb-4">
               <Form.Label className="fw-semibold">Password</Form.Label>
               <Form.Control 
@@ -68,29 +72,18 @@ function Login() {
                 placeholder="Nhập mật khẩu..."
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)} 
-                isInvalid={isPasswordShort} // Hiện viền đỏ nếu quá ngắn
+                // Hiện đỏ nếu password ngắn, hiện xanh nếu từ 6 ký tự trở lên
+                isInvalid={validated && !isPasswordValid}
+                isValid={validated && isPasswordValid}
                 required 
               />
-              {/* Cảnh báo chi tiết dưới ô nhập liệu */}
-              {isPasswordShort && (
-                <Form.Text className="text-danger">
-                  Mật khẩu phải đủ 6 ký tự.
-                </Form.Text>
-              )}
+              <Form.Control.Feedback type="valid">Mật khẩu đủ độ dài!</Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">Mật khẩu phải từ 6 ký tự.</Form.Control.Feedback>
             </Form.Group>
 
             <div className="d-flex gap-2">
-              <Button 
-                variant="primary" 
-                type="submit" 
-                className="w-100 fw-bold"
-                disabled={isPasswordShort} // Khóa nút nếu chưa đủ 6 ký tự
-              >
-                Login
-              </Button>
-              <Button variant="outline-secondary" onClick={handleCancel} className="w-100">
-                Cancel
-              </Button>
+              <Button variant="primary" type="submit" className="w-100 fw-bold">Login</Button>
+              <Button variant="outline-secondary" onClick={handleCancel} className="w-100">Cancel</Button>
             </div>
           </Form>
         </Card.Body>

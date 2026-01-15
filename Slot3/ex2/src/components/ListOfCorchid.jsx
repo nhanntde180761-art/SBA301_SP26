@@ -22,4 +22,5 @@ function ListOfCorchid({ orchid }) {
   )
 }
 
+
 export default ListOfCorchid
