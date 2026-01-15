@@ -22,7 +22,7 @@ function Footer() {
             <h5>Tác giả: &copy; nhannt</h5>
             <small>All rights reserved.</small>
           </Col>
-          <Col xs={2}>
+          {/* <Col xs={2}>
             <a
               href="mailto:nhanntde18076@fpt.edu.vn"
               style={{
@@ -31,9 +31,9 @@ function Footer() {
                 display: "block",
               }}
             >
-              nhanntde18076@fpt.edu.vn
+              nhannt
             </a>
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </footer>
