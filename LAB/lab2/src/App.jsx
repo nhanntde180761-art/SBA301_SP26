@@ -3,14 +3,17 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
+// 1. IMPORT AUTH PROVIDER
+import { AuthProvider } from "./context/AuthContext"; 
+
 import NavBar from "./components/NavBar";
-import Orchids from "./components/ListOfCorchid"; // Sửa lại tên file nếu cần
+import Orchids from "./components/ListOfCorchid"; 
 import OrchidDetail from "./components/OrchidDetail";
 import Footer from "./components/Footer";
-import Login from "./components/Login";
+import Login from "./pages/Login";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import MainLayout from "./components/MainLayout"; // Import component vừa tách
+import MainLayout from "./components/MainLayout";
 
 function App() {
   const [filterCategory, setFilterCategory] = useState("");
@@ -18,49 +21,52 @@ function App() {
   const [searchText, setSearchText] = useState("");
 
   return (
-    <Router>
-      <div className="app-container d-flex flex-column min-vh-100">
-        <header className="header-fixed shadow-sm">
-          <NavBar />
-        </header>
+    // 2. BỌC TOÀN BỘ TRONG AUTHPROVIDER
+    <AuthProvider>
+      <Router>
+        <div className="app-container d-flex flex-column min-vh-100">
+          <header className="header-fixed shadow-sm">
+            <NavBar />
+          </header>
 
-        <main className="main-content flex-grow-1">
-          <Routes>
-            {/* Trang Login không nằm trong MainLayout nên không có Banner/Search */}
-            <Route path="/" element={<Login />} />
+          <main className="main-content flex-grow-1">
+            <Routes>
+              {/* Trang Login */}
+              <Route path="/" element={<Login />} />
 
-            {/* Sử dụng MainLayout cho nhóm trang nội bộ */}
-            <Route
-              element={
-                <MainLayout
-                  setSearchText={setSearchText}
-                  setFilterCategory={setFilterCategory}
-                  setSortOption={setSortOption}
-                />
-              }
-            >
+              {/* Nhóm trang nội bộ sử dụng MainLayout */}
               <Route
-                path="/orchids"
                 element={
-                  <Orchids
-                    searchText={searchText}
-                    filterCategory={filterCategory}
-                    sortOption={sortOption}
+                  <MainLayout
+                    setSearchText={setSearchText}
+                    setFilterCategory={setFilterCategory}
+                    setSortOption={setSortOption}
                   />
                 }
-              />
-              <Route path="/detail/:id" element={<OrchidDetail />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-            </Route>
-          </Routes>
-        </main>
+              >
+                <Route
+                  path="/orchids"
+                  element={
+                    <Orchids
+                      searchText={searchText}
+                      filterCategory={filterCategory}
+                      sortOption={sortOption}
+                    />
+                  }
+                />
+                <Route path="/detail/:id" element={<OrchidDetail />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+              </Route>
+            </Routes>
+          </main>
 
-        <footer className="footer-fixed mt-auto">
-          <Footer />
-        </footer>
-      </div>
-    </Router>
+          <footer className="footer-fixed mt-auto">
+            <Footer /> 
+          </footer>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
