@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ép padding không đẩy lề ra ngoài */
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Chống cuộn ngang toàn trang */
+}

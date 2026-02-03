@@ -1,0 +1,117 @@
+.news-page {
+    padding: 10px;
+}
+
+.page-header-premium {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-add-news {
+    background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 4px 12px rgba(78, 115, 223, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-add-news:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(78, 115, 223, 0.3);
+}
+
+.premium-input {
+    border: 1.5px solid #f0f0f0 !important;
+    border-radius: 10px !important;
+    padding: 10px 15px !important;
+}
+
+.premium-input:focus {
+    border-color: #4e73df !important;
+    box-shadow: 0 0 0 4px rgba(78, 115, 223, 0.05) !important;
+}
+
+/* Table styling */
+.table-card {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.news-table thead th {
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #edf2f9;
+    padding: 18px 15px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #4e73df;
+    letter-spacing: 0.5px;
+}
+
+.news-table tbody td {
+    padding: 18px 15px;
+    vertical-align: middle;
+}
+
+.news-title-cell {
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 2px;
+}
+
+/* Status Pill */
+.status-pill {
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.status-pill.active {
+    background: #e1fcef;
+    color: #0e8a5a;
+}
+
+.status-pill.inactive {
+    background: #f1f2f4;
+    color: #5c6370;
+}
+
+/* Actions */
+.news-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.btn-action {
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-action.edit {
+    background: #f0f4ff;
+    color: #4e73df;
+}
+
+.btn-action.edit:hover {
+    background: #4e73df;
+    color: white;
+}
+
+.btn-action.delete {
+    background: #fff0f0;
+    color: #e53e3e;
+}
+
+.btn-action.delete:hover {
+    background: #e53e3e;
+    color: white;
+}

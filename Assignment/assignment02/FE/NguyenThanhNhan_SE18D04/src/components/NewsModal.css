@@ -1,0 +1,42 @@
+/* Tùy chỉnh Modal kiểu Premium */
+.premium-modal .modal-content {
+    border-radius: 24px;
+    border: none;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+.premium-input {
+    border: 1.5px solid #f0f0f0 !important;
+    border-radius: 12px !important;
+    padding: 12px 15px !important;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.premium-input:focus {
+    border-color: #4e73df !important;
+    box-shadow: 0 0 0 4px rgba(78, 115, 223, 0.1) !important;
+    background-color: #fff;
+}
+
+.premium-btn-save {
+    background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+    border: none;
+    padding: 12px 30px;
+}
+
+.premium-btn-save:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.premium-switch .form-check-input {
+    width: 3rem !important;
+    height: 1.5rem !important;
+    cursor: pointer;
+}
+ 
+.premium-switch .form-check-input:checked {
+    background-color: #10b981;
+    border-color: #10b981;
+}

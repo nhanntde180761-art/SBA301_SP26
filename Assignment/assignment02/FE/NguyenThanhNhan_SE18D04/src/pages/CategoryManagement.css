@@ -1,0 +1,136 @@
+/* Container & Header */
+.category-page {
+    padding: 10px;
+}
+
+.page-header-premium {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-add-premium {
+    background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(78, 115, 223, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-add-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 115, 223, 0.4);
+}
+
+/* Filter Card */
+.filter-card-premium {
+    border: none;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.search-input-premium, .select-premium {
+    border: 1.5px solid #f0f0f0 !important;
+    border-radius: 12px !important;
+    padding: 10px 15px !important;
+    font-size: 0.95rem;
+}
+
+.search-input-premium:focus {
+    border-color: #4e73df !important;
+    box-shadow: 0 0 0 4px rgba(78, 115, 223, 0.05) !important;
+}
+
+/* Premium Table */
+.table-card-premium {
+    border: none;
+    border-radius: 24px;
+    overflow: hidden;
+    background: white;
+}
+
+.premium-table thead th {
+    background: #f8f9fc;
+    border-bottom: 1px solid #f1f1f1;
+    color: #4e73df;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 20px 15px;
+}
+
+.premium-table tbody tr {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f8f9fc;
+}
+
+.premium-table tbody tr:hover {
+    background-color: #fcfdfe;
+}
+
+.premium-table td {
+    padding: 20px 15px;
+    font-size: 0.95rem;
+}
+
+.cat-name-cell {
+    font-weight: 700;
+    color: #2d3748;
+}
+
+/* Badge Style */
+.badge-premium {
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.badge-premium.active {
+    background: #e6fffa !important;
+    color: #319795 !important;
+}
+
+.badge-premium.inactive {
+    background: #fff5f5 !important;
+    color: #e53e3e !important;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-icon {
+    border: none;
+    padding: 6px 15px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-icon.edit {
+    background: #eef2ff;
+    color: #4e73df;
+}
+
+.btn-icon.edit:hover {
+    background: #4e73df;
+    color: white;
+}
+
+.btn-icon.delete {
+    background: #fff5f5;
+    color: #e53e3e;
+}
+
+.btn-icon.delete:hover {
+    background: #e53e3e;
+    color: white;
+}
