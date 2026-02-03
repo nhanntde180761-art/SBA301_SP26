@@ -1,0 +1,90 @@
+/* Tràn toàn màn hình và căn giữa */
+.login-page {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    position: fixed; /* Đảm bảo không bị dính margin từ root */
+    top: 0;
+    left: 0;
+}
+
+.login-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.ai-logo {
+    width: 70px;
+    height: 70px;
+    background: #2a5298;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    margin: 0 auto 15px;
+}
+
+.login-header h2 {
+    color: #333;
+    font-weight: 700;
+    margin: 0;
+}
+
+.login-header p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.input-group-custom {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group-custom label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.input-group-custom .form-control {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #2a5298;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background: #1e3c72;
+    transform: translateY(-2px);
+}
+
+.login-footer {
+    margin-top: 25px;
+    color: #999;
+}
