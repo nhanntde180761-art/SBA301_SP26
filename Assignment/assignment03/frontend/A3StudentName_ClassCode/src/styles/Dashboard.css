@@ -1,0 +1,53 @@
+/* Tổng thể khung Dashboard */
+.dashboard-container {
+    height: 100vh;
+    overflow: hidden; /* Ngăn toàn bộ trang bị cuộn */
+}
+
+/* Sidebar tùy chỉnh */
+.sidebar-column {
+    background-color: #ffffff;
+    min-width: 250px;
+    max-width: 250px;
+    height: calc(100vh - 56px); /* Full chiều cao trừ đi Navbar */
+    transition: all 0.3s;
+    z-index: 100;
+}
+
+/* Tùy chỉnh các link điều hướng */
+.sidebar-link {
+    color: #495057 !important;
+    font-weight: 500;
+    padding: 12px 20px !important;
+    margin-bottom: 5px;
+    border-radius: 8px !important;
+    transition: background 0.2s, color 0.2s;
+    border: 1px solid transparent;
+}
+
+.sidebar-link:hover {
+    background-color: #f8f9fa !important;
+    color: #0d6efd !important;
+}
+
+/* Link đang được chọn (Active) */
+.sidebar-link.active {
+    background-color: #0d6efd !important; /* Màu xanh chuẩn Bootstrap */
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+}
+
+/* Vùng nội dung bên phải */
+.content-column {
+    height: calc(100vh - 56px);
+    overflow-y: auto; /* Chỉ vùng này được cuộn */
+    background-color: #f4f7f6;
+    padding: 30px !important;
+}
+
+/* Card bao bọc các bảng dữ liệu */
+.main-card {
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
