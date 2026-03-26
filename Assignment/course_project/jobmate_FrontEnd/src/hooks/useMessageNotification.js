@@ -1,0 +1,20 @@
+import { useContext } from 'react';
+import { MessageNotificationContext } from '../contexts/MessageNotificationContext.jsx';
+
+export const useMessageNotification = () => {
+  const context = useContext(MessageNotificationContext);
+  if (!context) {
+    // Trả về default values thay vì throw error để tránh crash
+    return {
+      unreadCount: 0,
+      resetUnreadCount: () => { },
+      incrementUnreadCount: () => { },
+      setIsOnMessagesPage: () => { },
+      setViewedConversationId: () => { },
+      syncUnreadCount: () => { },
+      socket: null,
+    };
+  }
+  return context;
+};
+

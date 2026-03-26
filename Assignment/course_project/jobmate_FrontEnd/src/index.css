@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;900&family=Plus+Jakarta+Sans:wght@700;900&display=swap");
+
+@config "../tailwind.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-primary-50 text-primary-900 text-body font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1 {
+    @apply font-heading text-display;
+  }
+
+  h2 {
+    @apply font-heading text-h2;
+  }
+
+  h3 {
+    @apply font-heading text-h3;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-white/75 backdrop-blur-xl border border-primary-200;
+  }
+
+  .card-modern {
+    @apply bg-white rounded-3xl border border-primary-200 shadow-soft transition-all duration-300 hover:shadow-premium;
+  }
+
+  .app-text-title {
+    @apply text-h3 font-heading text-primary-900;
+  }
+
+  .app-text-subtitle {
+    @apply text-body text-primary-500;
+  }
+
+  .app-card {
+    @apply rounded-3xl border border-primary-200 bg-white shadow-soft transition-all duration-300 hover:shadow-premium;
+  }
+
+  .app-card-muted {
+    @apply rounded-xl border border-primary-200 bg-white shadow-soft;
+  }
+
+  .app-shell {
+    @apply min-h-screen bg-primary-50;
+  }
+
+  .app-main {
+    @apply mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8;
+  }
+
+  .app-page-title {
+    @apply text-display font-heading tracking-tight text-primary-900;
+  }
+
+  .app-page-subtitle {
+    @apply mt-2 text-body text-primary-500;
+  }
+
+  .app-input {
+    @apply w-full rounded-xl border border-primary-200 bg-white px-4 py-2.5 text-body text-primary-700 outline-none transition-all placeholder:text-primary-400 focus:border-brand-300 focus:ring-4 focus:ring-brand-600/10;
+  }
+
+  .app-select {
+    @apply app-input appearance-none;
+  }
+
+  .app-chip {
+    @apply inline-flex items-center gap-1.5 rounded-xl border border-primary-200 bg-primary-100 px-3 py-1.5 text-caption text-primary-600;
+  }
+
+  .app-badge {
+    @apply rounded-full px-3 py-1 text-caption uppercase tracking-wider;
+  }
+
+  .app-btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-button font-bold transition-all active:scale-95;
+  }
+
+  .app-btn-secondary {
+    @apply app-btn border border-primary-200 bg-white text-primary-800 shadow-soft hover:bg-primary-100 hover:shadow-premium;
+  }
+
+  .app-btn-primary {
+    @apply app-btn bg-brand-600 text-white shadow-soft hover:bg-brand-700 hover:shadow-premium;
+  }
+
+  .app-btn-soft {
+    @apply app-btn border border-brand-100 bg-brand-50 text-brand-700 hover:bg-brand-100;
+  }
+
+  .app-btn-warning {
+    @apply app-btn bg-warning text-white shadow-soft hover:brightness-95;
+  }
+}
